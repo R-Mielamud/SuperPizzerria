@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.urls import path
-from Orders.views import AddOrderView, CartView, EditOrderView
+from orders.views import AddOrderView, CartView, EditOrderView
 
 urlpatterns = [
     url(r"^addorder/$", AddOrderView.as_view()),

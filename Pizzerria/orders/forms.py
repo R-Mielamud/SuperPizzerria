@@ -1,5 +1,5 @@
 from django.forms import *
-from Orders.models import Order
+from orders.models import Order
 
 class AddOrderForm(ModelForm):
     def save_order(self):

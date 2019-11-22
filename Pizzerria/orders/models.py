@@ -1,15 +1,16 @@
 from django.db.models import *
 from django.contrib.auth.models import User
 
-class Client(Model):
-    user_login = CharField(max_length=20, default="")
-    password = CharField(max_length=256, default="")
+class Client(User):
+    class Meta:
+        verbose_name = "Client"
+        verbose_name_plural = "Clients"
 
     def __str__(self):
-        return str(self.user_login)
+        return str(self.username)
 
     def save(self, *args, **kwargs):
-        User.set_password(self, self.password)
+        self.set_password(self.password)
         return super().save(*args, **kwargs)
 
 class Ingredient(Model):
@@ -25,6 +26,9 @@ class Dish(Model):
     name = CharField(max_length=50, default="")
     price = DecimalField(max_digits=10, decimal_places=2, default=0)
     description = TextField(max_length=1000, blank=True, null=True)
+
+    class Meta:
+        verbose_name_plural = "Dishes"
 
     def __str__(self):
         return "{} ( {} )".format(self.name, self.id)

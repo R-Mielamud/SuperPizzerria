@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Orders.models import Client, Dish, Ingredient, Order
+from orders.models import Client, Dish, Ingredient, Order
 
 class DishAdmin(admin.ModelAdmin):
     readonly_fields = ["price"]

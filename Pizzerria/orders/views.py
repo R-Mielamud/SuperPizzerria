@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import FormView, ListView, UpdateView
-from Orders.forms import AddOrderForm
-from Orders.models import Order
+from orders.forms import AddOrderForm
+from orders.models import Order
 
 class AddOrderView(FormView):
     form_class = AddOrderForm
@@ -24,7 +24,7 @@ class CartView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["full_price"] = sum([order.price for order in Order.objects.all()])
+        context["full_price"] = sum([order.price for order in Order.objects.filter(client__username = self.request.user.username)])
         return context 
 
 class EditOrderView(UpdateView):
