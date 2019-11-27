@@ -10,13 +10,13 @@ class MainTestsCase(TestCase):
         Pizza.objects.create(
             id = 1,
             name = "First Test Pizza",
-            price = 100
+            price = 0
         )
 
         Pizza.objects.create(
             id = 2,
             name = "Second Test Pizza",
-            price = 200
+            price = 0
         )
 
         return super().setUpTestData()
@@ -28,3 +28,5 @@ class MainTestsCase(TestCase):
     def test_pizzas_output(self):
         response = self.client.get("/all_pizzas/")
         self.assertContains(response, "Our available pizzas:")
+        self.assertContains(response, "First Test Pizza price: 0.00$")
+        self.assertContains(response, "Second Test Pizza price: 0.00")
