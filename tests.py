@@ -29,4 +29,4 @@ class MainTestsCase(TestCase):
         response = self.client.get("/all_pizzas/")
         self.assertContains(response, "Our available pizzas:")
         self.assertContains(response, "First Test Pizza price: 0.00$")
-        self.assertContains(response, "Second Test Pizza price: 0.00")
+        self.assertContains(response, "Second Test Pizza price: 0.00$")
