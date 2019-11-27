@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')-wbsldz4n1&oj4r_!^xbn7va)+y7v%tg%gy8b68692y_j*wa&'
+SECRET_KEY = '6!--o28t@34=$e%=rle-+3=p0lcpfoe&m@-tbywdzjoi4kmo95'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'orders'
+    'index',
+    'allPizzas',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +53,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Pizzerria.urls'
 
-TEMPLATE_DIR_APPS = [os.path.join(BASE_DIR, "../templates")]
+TEMPLATE_DIR_APPS = [os.path.join(BASE_DIR, '../templates')]
 
 TEMPLATES = [
     {
@@ -65,7 +66,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'orders.context_processors.get_context'
             ],
         },
     },
@@ -123,4 +123,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = "/media/"
+MEDIA_URL = '/media/'
