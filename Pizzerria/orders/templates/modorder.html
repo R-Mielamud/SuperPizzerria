@@ -1,0 +1,17 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=\, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{ title_part_1 }}{{ header }} order</title>
+    </head>
+
+    <body>
+        <h1>{{ page_header }}</h1>
+
+        <form method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="{{ header }} to cart">
+        </form>
+    </body>
+</html>
