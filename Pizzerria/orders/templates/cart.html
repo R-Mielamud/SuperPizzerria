@@ -1,0 +1,33 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Pizzerria|Cart</title>
+    </head>
+
+    <body>
+        Your cart:
+        {{ user.username }}
+
+        <ul>
+            {% for order in orders %}
+                {% if order.client.username == user.username %}
+                    <li>
+                        {{ order.client.username }}:    <a href="order/{{ order.id }}/edit/">edit</a><br> 
+
+                        {% for dish in order.dishes.all %}
+                            - {{ dish.name }} ( {{ dish.price }}$ )
+                            <br>---------------------------------------------------<br>
+                        {% endfor %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <br>---------------------------------------------------<br><br>
+
+            {{ full_price }}<br>
+            <a href="addorder/">Add order</a>
+        </ul>
+    </body>
+</html>
