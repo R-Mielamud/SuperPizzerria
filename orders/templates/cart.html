@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+        {% for order in orders %}
+            <li>
+                <ul>
+                    {% for pizza in order.pizzas.all %}
+                        <li>{{ pizza.name }} - {{ pizza.price }}$ - to {{ order.address }}</li>
+                    {% endfor %}
+                </ul>
+                
+                <br>
+                ---
+                Total price: {{ order.price }}$
+                <br>
+                <a href="./order/{{ order.id }}/edit/">edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h3><a href="./addorder/">Let's place order!</a></h3>
+{% endblock %}
