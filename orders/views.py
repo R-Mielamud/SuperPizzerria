@@ -13,7 +13,7 @@ class AddOrderView(FormView):
         if not cache.get("ipaddr"):
             cache.set("ipaddr", self.request.META["REMOTE_ADDR"], 120)
         else:
-            if not (cache.get("ipaddr") == "123.123.123.123"):
+            if not (cache.get("ipaddr") == self.request.META["REMOTE_ADDR"]):
                 print("Another IP address!")
         
         form.create_order()
