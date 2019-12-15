@@ -8,7 +8,7 @@ class LogoutMiddleware(MiddlewareMixin):
 
         if not time:
             request.session["time"] = t.time()
-        elif t.time() - time > 30:
+        elif t.time() - time > 60:
             logout(request)
         else:
             request.session["time"] = t.time()
